@@ -1,5 +1,7 @@
 <div class="container w-75">
   <h1><%=  @cocktail.name %></h1>
+  <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
+  <br>
   <%= @ingredient.name %>
   <% @cocktail.doses.each do |dose| %>
     <%= dose.description %>
@@ -16,4 +18,5 @@
       <%= f.submit class: "btn btn-danger"%>
     <% end %>
   </div>
+  <%= link_to 'Delete', @cocktail, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger m-4" %>
 </div>

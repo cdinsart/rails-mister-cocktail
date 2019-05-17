@@ -1,6 +1,7 @@
 .card-product {
   overflow: hidden;
   height: 120px;
+  width: 300px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -50,4 +51,8 @@
 .link_to_card:hover {
   color: red;
   text-decoration: none;
+}
+
+.cards {
+  flex-wrap: wrap;
 }

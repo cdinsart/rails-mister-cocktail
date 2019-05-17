@@ -1,10 +1,16 @@
 <div class="container w-75">
-  <div class="cards">
+  <div class="cards d-flex">
     <% @cocktails.each do |cocktail| %>
+    <% if cocktail.photo.url %>
+      <% photo = cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <% photo = "https://source.unsplash.com/1600x900/?cocktail" %>
+    <%end%>
       <%= link_to cocktail_path(cocktail), class: "link_to_card" do%>
-        <div class="card-product">
+        <div class="card-product rounded m-2">
             <i class="far fa-heart"></i>
-            <img src="https://source.unsplash.com/1600x900/?<%=cocktail.name%>" alt="">
+            <img src="<%= photo %>">
+
           <div class="card-product-infos">
             <h5><%= cocktail.name %></h5>
           </div>
@@ -13,3 +19,5 @@
     <% end %>
   </div>
 </div>
+
+
