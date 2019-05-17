@@ -1,22 +1,27 @@
-<div class="container w-75">
-  <h1><%=  @cocktail.name %></h1>
-  <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
-  <br>
-  <%= @ingredient.name %>
-  <% @cocktail.doses.each do |dose| %>
-    <%= dose.description %>
-    <%= dose.ingredient.name%>
-    <%= link_to "🗑", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %>
-    <br>
-  <% end %>
-  <br>
-  <div class="form_dose mt-10">
-    <h1>Add an ingredient</h1>
-    <%= simple_form_for [@cocktail, @dose] do |f|%>
-      <%= f.association :ingredient %>
-      <%= f.input :description %>
-      <%= f.submit class: "btn btn-danger"%>
-    <% end %>
+<div class="container w-60">
+  <div class="cocktail-info-form d-flex justify-content-between mt-5 mb-3">
+    <div class="cocktail-content rounded flex-grow-1 d-flex" style="height: 300px">
+        <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill, class: "rounded"%>
+      <div class="d-inline-block pl-5">
+        <h1><%= @cocktail.name %></h1>
+        <%= @ingredient.name %>
+        <% @cocktail.doses.each do |dose| %>
+          <%= dose.description %>
+           <%= "  ⟼" %>
+          <%= dose.ingredient.name%>
+          <%= link_to "⤫", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-secondary' %>
+          <br>
+        <% end %>
+      </div>
+    </div>
+    <div class="form_dose p-3 shadow rounded">
+      <h1>Add an ingredient</h1>
+      <%= simple_form_for [@cocktail, @dose] do |f|%>
+        <%= f.association :ingredient %>
+        <%= f.input :description %>
+        <%= f.submit class: "btn btn-light"%>
+      <% end %>
+    </div>
   </div>
-  <%= link_to 'Delete', @cocktail, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger m-4" %>
+  <%#= link_to 'Delete this cocktail', @cocktail, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-light m-4" %>
 </div>
