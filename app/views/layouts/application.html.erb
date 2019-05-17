@@ -15,32 +15,14 @@
 <body>
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <div class="container w-75">
-      <a class="navbar-brand" href="#">
-        <img src="http://olivarargentino.com.ar/wp-content/uploads/2016/12/cocktel_olivar_argentino_2.jpg" />
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <!-- <a class="nav-link" href="#">Home</a> -->
-            <%= link_to 'List', cocktails_path, class: "nav-link btn btn-light"%>
+          <li class="nav-item active mr-3">
+            <%= link_to 'List', cocktails_path, class: "nav-link btn btn-light p-4"%>
           </li>
-          <li class="nav-item">
-            <%= link_to 'create a new cocktail', new_cocktail_path, class: "nav-link btn btn-light"%>
-          </li>
-          <li class="nav-item dropdown">
-            <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-            </div>
+          <li class="nav-item mr-3">
+            <%= link_to 'create a new cocktail', new_cocktail_path, class: "nav-link btn btn-light p-4"%>
           </li>
         </ul>
-      </div>
       </div>
     </div>
     <%= yield %>
